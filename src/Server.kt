@@ -7,9 +7,8 @@ const val defaultPort = 8888
 
 fun main(args: Array<String>) {
     val portConfigured = args.isNotEmpty() && args[0].startsWith(portArgName)
-
     val port = if (portConfigured) {
         args[0].split("=").last().trim().toInt()
     } else defaultPort
-    embeddedServer(Netty, port,"192.168.124.34", module = Application::main).start(wait = true)
+    embeddedServer(Netty, port, "192.168.124.16", module = Application::main).start(wait = true)
 }
